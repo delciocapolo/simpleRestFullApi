@@ -1,7 +1,7 @@
 const { connection, config } = require('./connectionDB');
 const { DataTypes } = require('sequelize');
 
-const User = connection.define(
+const USER = connection.define(
 	'user',
 	{
 		id: {
@@ -31,4 +31,4 @@ const User = connection.define(
 	config
 );
 
-module.exports = User;
+module.exports = USER;

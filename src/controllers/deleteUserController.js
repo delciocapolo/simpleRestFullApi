@@ -1,9 +1,9 @@
-const deleteUserService = require('../services/deleteUserService');
+const USER = require('../models/userModel');
+const deleteRegisterService = require('../services/deleteRegisterService');
 
 const deleteUserController = (req, res) => {
 	const { id } = req.params;
-	const { body } = req;
-	deleteUserService(id, body);
+	deleteRegisterService(USER, 'id', id);
 	res.status(204).end();
 };
 

@@ -1,7 +1,7 @@
 const { connection, config } = require('./connectionDB');
 const { DataTypes } = require('sequelize');
 
-const post = connection.define(
+const POST = connection.define(
 	'post',
 	{
 		id: {
@@ -26,4 +26,4 @@ const post = connection.define(
 	config
 );
 
-module.exports = post;
+module.exports = POST;

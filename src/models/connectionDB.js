@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const log = require('debug')('api:database');
+const { logDatabase } = require('../global/log');
 require('dotenv').config();
 
 const config = {
@@ -17,7 +17,7 @@ const connection = new Sequelize({
 
 connection
 	.authenticate()
-	.then(_res => log('CONNECTION CREATED IN SUCESS'))
-	.catch(err => log(`CONNECTION BAD: ${err}`));
+	.then(_res => logDatabase('CONNECTION CREATED IN SUCESS'))
+	.catch(err => logDatabase(`CONNECTION BAD: ${err}`));
 
-module.exports = { connection, config, log };
+module.exports = { connection, config };

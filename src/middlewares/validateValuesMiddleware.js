@@ -1,9 +1,8 @@
+const { logMiddleware } = require('../global/log');
 const {
 	multiValidateFn,
 	validateObjFn
 } = require('../services/get/validateData');
-
-const log = require('debug')('api:middleware');
 
 const validateValuesMiddleware = (req, res, next) => {
 	const { body } = req;
@@ -15,6 +14,7 @@ const validateValuesMiddleware = (req, res, next) => {
 
 	if (Array.isArray(body) && multiValidateFn('undefined', body)) err();
 	if (validateObjFn('undefined', body)) err();
+	logMiddleware('O MIDDLEWARE PASSOU POR AQUI :) !');
 	next();
 };
 
