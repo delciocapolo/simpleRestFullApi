@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const User = require('../models/userModel');
+const { validateFn } = require('./get/validateData');
 const log = require('debug')('api:service');
 
 const updateUserService = async (idUser, datas) => {
@@ -20,6 +21,8 @@ const updateUserService = async (idUser, datas) => {
 			)
 				.then(res => log(`Registo de usuario atualizado! ${res}`))
 				.catch(err => log('Alteracao de registo nao sucedida | Erro: ' + err));
+		} else {
+			log('Atualizacao de registos com dados vazios, nao sao permitidos');
 		}
 	});
 };
