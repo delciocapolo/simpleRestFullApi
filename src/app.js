@@ -1,7 +1,10 @@
-const express = require("express");
-require("dotenv").config();
+const express = require('express');
+const log = require('debug')('api:server');
+require('dotenv').config();
 
 const app = express();
-app.listen(process.env.PORT || 5500, () => console.log(`Server is running at http://127.0.0.1:${process.env.PORT}`));
+const PORT = process.env.PORT || 5500;
 
-module.exports = app;
+app.listen(PORT, () => log(`Server is running at http://127.0.0.1:${PORT}`));
+
+module.exports = { app, log };
