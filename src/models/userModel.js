@@ -1,6 +1,5 @@
 const { connection, config } = require('./connectionDB');
 const { DataTypes } = require('sequelize');
-const localization = require('../services/localizationService');
 
 const User = connection.define(
 	'user',
@@ -16,16 +15,17 @@ const User = connection.define(
 			unique: true
 		},
 		sexo: {
-			type: DataTypes.ENUM('S', 'M'),
+			type: DataTypes.ENUM('F', 'M'),
 			defaultValue: 'M'
 		},
-		nacionalidade: {
-			type: DataTypes.STRING(900),
-			defaultValue: localization()
-		},
+		nacionalidade: DataTypes.STRING(500),
 		seguidores: {
 			type: DataTypes.INTEGER,
 			defaultValue: 0
+		},
+		password: {
+			type: DataTypes.STRING,
+			allowNull: false
 		}
 	},
 	config
