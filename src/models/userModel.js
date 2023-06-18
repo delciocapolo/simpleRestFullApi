@@ -10,7 +10,7 @@ const USER = connection.define(
 			defaultValue: DataTypes.UUIDV4,
 			primaryKey: true
 		},
-		userName: {
+		username: {
 			type: DataTypes.STRING(350),
 			allowNull: false,
 			unique: true
@@ -19,7 +19,10 @@ const USER = connection.define(
 			type: DataTypes.ENUM('F', 'M'),
 			defaultValue: 'M'
 		},
-		nacionalidade: DataTypes.STRING(500),
+		nacionalidade: {
+			type: DataTypes.STRING(500),
+			defaultValue: 'Angola'
+		},
 		seguidores: {
 			type: DataTypes.INTEGER,
 			defaultValue: 0

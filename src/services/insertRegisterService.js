@@ -22,7 +22,8 @@ const insertRegisterService = async (tbl_name, req) => {
 		}
 	};
 	const checkGeneralCondition = (register, key) =>
-		Object.keys(register).includes(key) && simpleValidateFn(register[key]);
+		Object.keys(register).includes(key) &&
+		register[key].toLowerCase() === 'auto';
 
 	if (Array.isArray(body)) {
 		body.forEach(async register =>
