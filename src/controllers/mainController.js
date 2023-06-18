@@ -1,13 +1,19 @@
 const { logController } = require('../global/log');
 const USER = require('../models/userModel');
-const { getRegister } = require('../services/getRegisterService');
+const { getRegister, getPost } = require('../services/getRegisterService');
 
-const mainController = async (req, res) => {
-	const infoData = await getRegister(USER);
+const mainControllerUser = async (_req, res) => {
+	const result = await getRegister(USER);
 	return res.status(200).json({
 		message: 'Todos os usuarios',
-		data: infoData
+		data: result
 	});
 };
-
-module.exports = mainController;
+const mainControllerPost = async (req, res) => {
+	const result = await getPost();
+	return res.status(200).json({
+		message: 'POST de todos os usuarios',
+		data: result
+	});
+};
+module.exports = { mainControllerUser, mainControllerPost };

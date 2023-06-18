@@ -4,7 +4,7 @@ const deleteRegisterService = require('../services/deleteRegisterService');
 const deleteUserController = (req, res) => {
 	const { id } = req.params;
 	deleteRegisterService(USER, 'id', id);
-	res.status(204).end();
+	return res.status(204).end();
 };
 
 module.exports = deleteUserController;

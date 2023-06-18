@@ -14,9 +14,9 @@ const updatePostRouter = require('./routes/updatePostRouter');
 
 // CONFIGURACOES
 const { connection } = require('./models/connectionDB');
-// const userModel = require('./models/userModel');
-// const postModel = require('./models/postModel');
-connection.sync();
+const userModel = require('./models/userModel');
+const postModel = require('./models/postModel');
+connection.sync({ force: true });
 
 // USO DAS ROTAS
 //  ROTAS USER

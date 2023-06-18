@@ -1,14 +1,22 @@
-const validateFn = (typeData, ...valores) => {
-	return valores.every(valor => typeof valor === typeData || valor !== '');
-};
-const multiValidateFn = (typeData, arr = []) => {
-	return arr.every(valor => typeof valor === typeData || valor === '');
-};
-const validateObjFn = (typeData, obj = {}) => {
-	return (
-		obj === undefined ||
-		Object.values(obj).every(valor => typeof valor === typeData || valor === '')
+const simpleValidateFn = (...arr) => {
+	return arr.every(
+		valor =>
+			typeof valor !== 'undefined' &&
+			valor !== undefined &&
+			valor !== 'undefined' &&
+			valor !== ''
 	);
 };
+const multiValidateFn = (arr = []) => arr.every(valor => validateObjFn(valor));
+const validateObjFn = (obj = {}) =>
+	obj !== undefined &&
+	obj !== '' &&
+	Object.values(obj).every(
+		valor =>
+			typeof valor !== 'undefined' &&
+			valor !== undefined &&
+			valor !== 'undefined' &&
+			valor !== ''
+	);
 
-module.exports = { validateFn, multiValidateFn, validateObjFn };
+module.exports = { simpleValidateFn, multiValidateFn, validateObjFn };

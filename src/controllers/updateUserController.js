@@ -7,7 +7,7 @@ const updateUserController = (req, res) => {
 	const { body } = req;
 
 	updateRegisterService(USER, id, body);
-	res.status(201).json({ message: 'Dados de usuario atualizados com sucesso' });
+	return res.status(201).json({ message: 'Dados de usuario atualizados com sucesso' });
 };
 
 module.exports = updateUserController;

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5500;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(PORT, () =>
-	logServer(`Server is running at http://127.0.0.1:${PORT}`)
+	logServer(`Server is running at http://127.0.0.1:${PORT}/user`)
 );
 
 module.exports = { app };

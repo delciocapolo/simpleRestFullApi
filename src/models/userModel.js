@@ -1,5 +1,6 @@
 const { connection, config } = require('./connectionDB');
 const { DataTypes } = require('sequelize');
+const POST = require('./postModel');
 
 const USER = connection.define(
 	'user',
@@ -30,5 +31,5 @@ const USER = connection.define(
 	},
 	config
 );
-
+USER.hasOne(POST, { foreignKey: 'identificacao' });
 module.exports = USER;
